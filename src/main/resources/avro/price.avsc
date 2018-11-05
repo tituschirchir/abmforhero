@@ -1,0 +1,25 @@
+{
+  "type": "record",
+  "name": "Price",
+  "namespace": "avro",
+  "fields": [
+    {
+      "name": "ticker",
+      "type": "string"
+    },
+    {
+      "name": "time",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "logicalType": "timestamp-millis"
+        }
+      ]
+    },
+    {
+      "name": "value",
+      "type": "double"
+    }
+  ]
+}

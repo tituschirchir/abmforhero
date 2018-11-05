@@ -1,0 +1,8 @@
+{
+  "type": "record",
+  "namespace": "avro",
+  "name": "Book",
+  "fields": [
+    { "name": "quote", "type": "Stock" }
+  ]
+}

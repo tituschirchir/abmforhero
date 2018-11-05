@@ -1,0 +1,39 @@
+{
+  "type": "record",
+  "name": "Companies",
+  "namespace": "avro",
+  "fields": [
+    {
+      "name": "symbol",
+      "type": "string"
+    },
+    {
+      "name": "companyName",
+      "type": "string"
+    },
+    {
+      "name": "exchange",
+      "type": "string"
+    },
+    {
+      "name": "industry",
+      "type": "string"
+    },
+    {
+      "name": "website",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "issueType",
+      "type": "string"
+    },
+    {
+      "name": "sector",
+      "type": "string"
+    }
+  ]
+}

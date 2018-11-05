@@ -1,0 +1,77 @@
+import com.commercehub.gradle.plugin.avro.GenerateAvroJavaTask
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+plugins {
+    id "com.commercehub.gradle.plugin.avro" version "0.9.1"
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'abm'
+    version =  '0.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+    compile group: 'org.jsonschema2pojo', name: 'jsonschema2pojo-core', version: '0.5.1'
+    compile group: 'org.apache.avro', name: 'avro', version: '1.8.2'
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.5'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.1'
+
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile("org.springframework.security:spring-security-test")
+
+}
+
+task generateAvro(type: GenerateAvroJavaTask) {
+    source("src/main/resources/avro")
+    outputDir = file("src/main/java/avro")
+    doLast {
+        println("RENAMING")
+        ant.move file: "src/main/java/avro/avro",
+                todir: "src/main/java/"
+        ant.replaceregexp(match:'org.apache.avro.specific.SpecificRecordBase', replace:'client.AvroHelper', flags:'g', byline:true) {
+            fileset(dir: 'src/main/java/avro', includes: '*.java')
+        }
+        ant.replaceregexp(match:'private static final long serialVersionUID', replace:'@Id\n' +
+                '@GeneratedValue(strategy=GenerationType.AUTO)\n' +
+                'private Long id;\n ' +
+                'private static final long serialVersionUID', flags:'g', byline:true) {
+            fileset(dir: 'src/main/java/avro', includes: '*.java')
+        }
+        ant.replaceregexp(match:'import org.apache.avro.specific.SpecificData;', replace:'import javax.persistence.Entity;\n' +
+                'import org.apache.avro.specific.SpecificData;\n'+
+                'import javax.persistence.GeneratedValue;\n' +
+                'import javax.persistence.GenerationType;\n' +
+                'import javax.persistence.Id;\n' +
+                '@Entity', flags:'g', byline:true) {
+            fileset(dir: 'src/main/java/avro', includes: '*.java')
+        }
+    }
+}

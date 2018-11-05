@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "TickHistory",
+  "namespace": "avro",
+  "fields": [
+    {
+      "name": "ticks",
+      "type": {
+        "type": "array",
+        "items": "Tick"
+      }
+    }
+  ]
+}

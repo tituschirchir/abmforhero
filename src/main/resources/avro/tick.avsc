@@ -1,0 +1,42 @@
+{
+  "type" : "record",
+  "name" : "Tick",
+  "namespace" : "avro",
+  "fields" : [ {
+    "name" : "date",
+    "type" : "string"
+  }, {
+    "name" : "open",
+    "type" : "double"
+  }, {
+    "name" : "high",
+    "type" : "double"
+  }, {
+    "name" : "low",
+    "type" : "double"
+  }, {
+    "name" : "close",
+    "type" : "double"
+  }, {
+    "name" : "volume",
+    "type" : "long"
+  }, {
+    "name" : "unadjustedVolume",
+    "type" : "long"
+  }, {
+    "name" : "change",
+    "type" : "double"
+  }, {
+    "name" : "changePercent",
+    "type" : "double"
+  }, {
+    "name" : "vwap",
+    "type" : "double"
+  }, {
+    "name" : "label",
+    "type" : "string"
+  }, {
+    "name" : "changeOverTime",
+    "type" : "long"
+  } ]
+}

@@ -1,0 +1,168 @@
+{
+  "type": "record",
+  "name": "Stock",
+  "namespace": "avro",
+  "fields": [
+    {
+      "name": "symbol",
+      "type": "string"
+    },
+    {
+      "name": "companyName",
+      "type": "string"
+    },
+    {
+      "name": "primaryExchange",
+      "type": "string"
+    },
+    {
+      "name": "sector",
+      "type": "string"
+    },
+    {
+      "name": "calculationPrice",
+      "type": "string"
+    },
+    {
+      "name": "open",
+      "type": "double"
+    },
+    {
+      "name": "openTime",
+      "type": "long"
+    },
+    {
+      "name": "close",
+      "type": "double"
+    },
+    {
+      "name": "closeTime",
+      "type": "long"
+    },
+    {
+      "name": "high",
+      "type": "double"
+    },
+    {
+      "name": "low",
+      "type": "double"
+    },
+    {
+      "name": "latestPrice",
+      "type": "double"
+    },
+    {
+      "name": "latestSource",
+      "type": "string"
+    },
+    {
+      "name": "latestTime",
+      "type": "string"
+    },
+    {
+      "name": "latestUpdate",
+      "type": "long"
+    },
+    {
+      "name": "latestVolume",
+      "type": "long"
+    },
+    {
+      "name": "iexRealtimePrice",
+      "type":
+        "string"
+    },
+    {
+      "name": "iexRealtimeSize",
+      "type": "string"
+    },
+    {
+      "name": "iexLastUpdated",
+      "type": "string"
+    },
+    {
+      "name": "delayedPrice",
+      "type": "double"
+    },
+    {
+      "name": "delayedPriceTime",
+      "type": "long"
+    },
+    {
+      "name": "extendedPrice",
+      "type": "double"
+    },
+    {
+      "name": "extendedChange",
+      "type": "double"
+    },
+    {
+      "name": "extendedChangePercent",
+      "type": "double"
+    },
+    {
+      "name": "extendedPriceTime",
+      "type": "long"
+    },
+    {
+      "name": "previousClose",
+      "type": "double"
+    },
+    {
+      "name": "change",
+      "type": "double"
+    },
+    {
+      "name": "changePercent",
+      "type": "double"
+    },
+    {
+      "name": "iexMarketPercent",
+      "type": "string"
+    },
+    {
+      "name": "iexVolume",
+      "type": "string"
+    },
+    {
+      "name": "avgTotalVolume",
+      "type": "long"
+    },
+    {
+      "name": "iexBidPrice",
+      "type": "string"
+    },
+    {
+      "name": "iexBidSize",
+      "type": "string"
+    },
+    {
+      "name": "iexAskPrice",
+      "type": "string"
+    },
+    {
+      "name": "iexAskSize",
+      "type": "string"
+    },
+    {
+      "name": "marketCap",
+      "type": "long"
+    },
+    {
+      "name": "peRatio",
+      "type": "double"
+    },
+    {
+      "name": "week52High",
+      "type": "double"
+    },
+    {
+      "name": "week52Low",
+      "type": "double"
+    },
+    {
+      "name": "ytdChange",
+      "type": "double"
+    }
+  ]
+}
